@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .navHeader {
+        @apply container flex justify-between items-center pr-8 bg-[#99A3A4]
+    }
+
+    .logo {
+        @apply w-[180px] pt-1 pb-1 pl-8
+    }
+}
