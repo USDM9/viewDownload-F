@@ -7,12 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        primaryColor: '#0067ff',
-        yellowColor: '#FEB60D',
-        purpleColor: '#9771FF',
-        irisBlueColor: '#01B5C5',
-        headingColor: '#181A1E',
-        textColor: '#4E545F'
+        darkPrimaryColor: '#455A64',
+        lightPrimaryColor: '#CFD8DC',
+        primaryColor: '#607D8B',
+        textIconsColor: '#FFFFFF',
+        accentColor: '#9E9E9E',
+        prymaryTextColor: '#212121',
+        secundaryTextColor: '#757575'
       },
 
       boxShadow: {
