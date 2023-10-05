@@ -1,5 +1,5 @@
 import React from 'react'
-import listLogo from '../../Assets/data/footer'
+import listimg from '../../Assets/data/listImg'
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
         </h2>
       </div>
       <ul className='grid grid-rows-2 gap-2 p-[0.3rem]'>
-        {listLogo.map((item, index) => {
+        {listimg.map((item, index) => {
           return (
             item.content === 'demo'
               ? <li key={index} className='flex justify-start items-center gap-2'>

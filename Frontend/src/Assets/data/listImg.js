@@ -1,9 +1,9 @@
 import reactjsLogo from '../images/reactjs-logo.webp'
 import tailwindcssLogo from '../images/tailwindcss-logo.webp'
 import avatar from '../images/avatar.png'
-import demo from '../images/demo-logo.png'
+import logo from '../images/demo-logo.png'
 
-const listLogo = [
+const listImg = [
 
   {
     img: `${reactjsLogo}`,
@@ -22,9 +22,9 @@ const listLogo = [
   },
 
   {
-    img: `${demo}`,
-    content: 'demo'
+    img: `${logo}`,
+    content: 'logo'
   }
 ]
 
-export default listLogo
+export default listImg

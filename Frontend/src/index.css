@@ -5,23 +5,10 @@
 @layer components {
     /* === Header ===*/
 
-    .navHeader {
-        @apply  flex justify-between items-center pr-8 bg-darkPrimaryColor text-textIconsColor h-[12.5vh] gap-[30px]
-    }
-    .containerLogo {
-        @apply w-[180px] pt-1 pb-1 pl-[30px]
-    }
-
-    .containerLinks {
-        @apply hidden
-    }
-
-    .containerLogin {
-        @apply hidden
-    }
-
-    .menu {
-        @apply   sm:hidden
+    .nav {
+        @apply 
+        bg-darkPrimaryColor
+        text-textIconsColor
     }
 
 
