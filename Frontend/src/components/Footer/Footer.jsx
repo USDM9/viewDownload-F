@@ -9,7 +9,7 @@ const Footer = () => {
           Tecnologias Usadas En La Creacion.
         </h2>
       </div>
-      <ul className='grid grid-rows-2 gap-2 p-1'>
+      <ul className='grid grid-rows-2 gap-2 p-[0.3rem]'>
         {listLogo.map((item, index) => {
           return (
             item.content === 'demo'

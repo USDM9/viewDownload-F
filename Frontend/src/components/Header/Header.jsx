@@ -59,7 +59,9 @@ const Header = () => {
 
       <nav className='navHeader  sticky top-0 h-auto'>
         <div className='containerLogo '>
-          <img src={logo} alt='' className='logo w-[120px] h-[60px]' />
+          <Link to='/'>
+            <img src={logo} alt='' className='logo w-[120px] h-[60px]' />
+          </Link>
         </div>
         <ul className='containerLinks '>
           <li>
