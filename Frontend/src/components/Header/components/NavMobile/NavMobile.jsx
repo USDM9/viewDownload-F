@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import listImg from '../../../../Assets/data/listImg'
-import getHanddleLogo from './NavMobile.js.jsx'
+import getHanddleLogo from './NavMobile.js'
 
 const NavMobile = () => {
   const logo = getHanddleLogo(listImg, 'img')

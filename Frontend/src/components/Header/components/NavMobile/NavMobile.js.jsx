@@ -1,19 +1,25 @@
 const dataLogo = []
 
 const getHanddleLogo = (list, get) => {
-  const img = dataLogo[0]
-  const alt = dataLogo[1]
-  if (list === undefined || get === undefined) throw new Error('must send two parameter to the function')
+  if (Array.isArray(list)) {
+    if (typeof get !== 'string') throw new Error('second parameter must be string')
+    handdleSearchLogo(list, get)
+  } else {
+    if (list === undefined || get === undefined) throw new Error('must send two parameter to the function')
+    throw new Error('first parameter must be array')
+  }
+
+  if (get === 'img') return dataLogo[0]
+  if (get === 'alt') return dataLogo[1]
+}
+
+const handdleSearchLogo = (list, get) => {
   list.forEach(item => {
     if (item.content === 'logo') {
       dataLogo.push(item.img)
       dataLogo.push(item.content)
     }
   })
-
-  if (get === 'img') return img
-
-  if (get === 'alt') return alt
 }
 
 export default getHanddleLogo

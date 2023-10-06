@@ -1,22 +1,22 @@
 import { afterEach, describe, it } from 'vitest'
 import { render, screen, cleanup } from '@testing-library/react'
 
-import Header from '../Header'
+import NavBar from '../NavBar'
 
 describe('Header Component', () => {
   afterEach(cleanup)
 
   it('should render', () => {
-    render(<Header />)
+    render(<NavBar />)
   })
 
   it('should render the element html main', () => {
-    render(<Header />)
+    render(<NavBar />)
     screen.getByRole('nav')
   })
 
   it('should render the element httml nav', () => {
-    render(<Header />)
+    render(<NavBar />)
     screen.getByRole('navMobile')
   })
 })
