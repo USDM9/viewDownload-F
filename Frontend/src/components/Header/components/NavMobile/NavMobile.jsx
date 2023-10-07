@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import listImg from '../../../../Assets/data/listImg'
-import getHanddleLogo from './NavMobile.js'
+import { getHanddleLogo } from './NavMobile.js.jsx'
 
 const NavMobile = () => {
   const logo = getHanddleLogo(listImg, 'img')
@@ -16,10 +16,10 @@ const NavMobile = () => {
       <div className='containerList'>
         <ul role='ul'>
           <li role='li'>
-            <a to='/inicio'>Inicio</a>
+            <Link to='/inicio'>Inicio</Link>
           </li>
           <li>
-            <a to='/Contacto'>Contacto</a>
+            <Link to='/Contacto'>Contacto</Link>
           </li>
         </ul>
       </div>

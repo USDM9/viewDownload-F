@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Footer from '../components/Footer/Footer'
 import NavBar from '../components/Header/NavBar'
 import Routers from '../Routes/Routers'
+import Footer from '../components/Footer/Footer'
 
 const Layout = () => {
   return (

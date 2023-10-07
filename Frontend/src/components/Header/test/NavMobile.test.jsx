@@ -2,38 +2,65 @@ import { afterEach, describe, it } from 'vitest'
 import { render, screen, cleanup } from '@testing-library/react'
 import { expect } from 'chai'
 
+import { MemoryRouter } from 'react-router-dom'
 import NavMobile from '../components/NavMobile/NavMobile'
-import getHanddleLogo from '../components/NavMobile/NavMobile.js'
+import { getHanddleLogo } from '../components/NavMobile/NavMobile.js.jsx'
+import { searchList } from '../../../utils/serchList.js.jsx'
 import listImg from '../../../Assets/data/listImg'
+
+/* ============ Test de Renderizado ============= */
 
 describe('NavMobile Component', () => {
   afterEach(cleanup)
 
   it('Should render the component', () => {
-    render(<NavMobile />)
+    render(
+      <MemoryRouter>
+        <NavMobile />
+      </MemoryRouter>
+    )
   })
 
   it("Should render HTML element with the 'navMobile' role", () => {
-    render(<NavMobile />)
+    render(
+      <MemoryRouter>
+        <NavMobile />
+      </MemoryRouter>
+    )
     const element = screen.getByRole('navMobile')
 
+    // 'exist' genera un error de linter no afecta el test el error es que el linter espera  'expect(element).to.exist()'
+    // pero chair funciona sin '()'
+    // prueba poner '()' a 'exist' y el error desaparece pero el test falla
     expect(element).to.exist
   })
 
   it("Should render HTML element with the 'ul' role", () => {
-    render(<NavMobile />)
+    render(
+      <MemoryRouter>
+        <NavMobile />
+      </MemoryRouter>
+    )
     const element = screen.getByRole('ul')
     expect(element).to.exist
   })
 
   it("Should render HTML elements with the 'li' role", () => {
-    render(<NavMobile />)
+    render(
+      <MemoryRouter>
+        <NavMobile />
+      </MemoryRouter>
+    )
     const element = screen.getAllByRole('li')
     expect(element).to.exist
   })
 
   it("Should render React DOM <Link /> elements for 'Inicio' and 'Contacto'", () => {
-    render(<NavMobile />)
+    render(
+      <MemoryRouter>
+        <NavMobile />
+      </MemoryRouter>
+    )
     const home = screen.getAllByText('Inicio')
     const contacto = screen.getAllByText('Contacto')
 
@@ -42,19 +69,40 @@ describe('NavMobile Component', () => {
   })
 
   it("Should render the 'containerImg' element", () => {
-    render(<NavMobile />)
+    render(
+      <MemoryRouter>
+        <NavMobile />
+      </MemoryRouter>
+    )
     const containerImg = screen.getByRole('containerImg')
 
     expect(containerImg).to.exist
   })
 
   it("Should render the HTML 'img' element", () => {
-    render(<NavMobile />)
+    render(
+      <MemoryRouter>
+        <NavMobile />
+      </MemoryRouter>
+    )
     const img = screen.getByRole('img')
 
     expect(img).to.exist
   })
+
+  it('confirm element <img> contain alt', () => {
+    render(
+      <MemoryRouter>
+        <NavMobile />
+      </MemoryRouter>
+    )
+    const isAlt = screen.getAllByAltText('logo')
+
+    expect(isAlt).to.exist
+  })
 })
+
+/* ====='Testing getHanddleLogo Function' ===== */
 
 describe('Testing getHanddleLogo Function', () => {
   it('getHanddleLogo should be a function', () => {
@@ -73,24 +121,17 @@ describe('Testing getHanddleLogo Function', () => {
     expect(() => getHanddleLogo(listImg, number)).to.throw('second parameter must be string')
   })
 
-  it('should return img or alt based on props and confirm a minimum length of 2', () => {
+  it('should return img or alt based on props and confirm than res is a string', () => {
     const img = getHanddleLogo(listImg, 'img')
     const alt = getHanddleLogo(listImg, 'alt')
+    const resWithAlt = searchList(listImg, 'alt')
+    const resWithImg = searchList(listImg, 'img')
 
-    const data = []
+    // Verififa que res sea un string
+    expect(resWithAlt).to.be.a('string')
 
-    listImg.forEach(item => {
-      if (item.content === 'logo') {
-        data.push(item.img)
-        data.push(item.content)
-      }
-    })
-
-    // Verififa que data tenga una longitud de 2
-    expect(data.length).to.be.at.least(2)
-
-    // Verifica que el contenido de img o alt sea igual data[n]
-    expect(img).to.equal(data[0])
-    expect(alt).to.equal(data[1])
+    // Verifica que el contenido de img o alt exista en la lista
+    expect(img).to.equal(resWithImg)
+    expect(alt).to.equal(resWithAlt)
   })
 })
