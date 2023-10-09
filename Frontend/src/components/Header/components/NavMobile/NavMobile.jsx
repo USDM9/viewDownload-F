@@ -16,10 +16,13 @@ const NavMobile = () => {
       <div className='containerList'>
         <ul role='ul'>
           <li role='li'>
-            <Link to='/inicio'>Inicio</Link>
+            <Link role='a' to='/Home'>Inicio</Link>
           </li>
-          <li>
-            <Link to='/Contacto'>Contacto</Link>
+          <li role='li'>
+            <Link role='a' to='/Contact'>Contacto</Link>
+          </li>
+          <li role='li'>
+            <Link role='a' to='/UserPage'>User Page</Link>
           </li>
         </ul>
       </div>

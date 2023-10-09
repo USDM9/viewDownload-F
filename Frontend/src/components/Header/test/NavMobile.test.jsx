@@ -6,9 +6,20 @@ import { MemoryRouter } from 'react-router-dom'
 import NavMobile from '../components/NavMobile/NavMobile'
 import { getHanddleLogo } from '../components/NavMobile/NavMobile.js.jsx'
 import { searchList } from '../../../utils/serchList.js.jsx'
+import { matchIfTextEquall } from '../../../utils/machIfTextEquall'
 import listImg from '../../../Assets/data/listImg'
 
 /* ============ Test de Renderizado ============= */
+
+const getChildrens = (element) => {
+  const res = []
+
+  element.forEach((item, idx) => {
+    if (item.children) res.push(item.children)
+  })
+  console.log(['log'])
+  return res
+}
 
 describe('NavMobile Component', () => {
   afterEach(cleanup)
@@ -51,8 +62,15 @@ describe('NavMobile Component', () => {
         <NavMobile />
       </MemoryRouter>
     )
-    const element = screen.getAllByRole('li')
-    expect(element).to.exist
+    const li = screen.getAllByRole('li')
+    // isInfo retorna un array de <a>
+    const elements = getChildrens(li)
+    // res comprueba que los links se estan renderizando
+    const res = matchIfTextEquall('User Page', elements)
+
+    expect(elements).to.lengthOf(3)
+    expect(li).to.exist
+    expect(res).to.true
   })
 
   it("Should render React DOM <Link /> elements for 'Inicio' and 'Contacto'", () => {

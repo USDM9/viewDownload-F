@@ -1,10 +1,26 @@
+import React from 'react'
+
+const Home = () => {
+  return (
+    <div>
+      Home Page
+    </div>
+  )
+}
+
+export default Home
+
+/*
+
 import { React, useState, useContext } from 'react'
 import Login from '../Login/Login'
 import Register from '../Register/Register'
-import UserPage from '../userPage/userPage'
 import { userContext } from '../../Context/userContext'
 
-const Home = () => {
+*/
+
+/*
+
   const user = useContext(userContext)
   const [goRegister, setGoRegister] = useState(false)
   const [isConfirm, setIsConfirm] = useState(false)
@@ -19,7 +35,7 @@ const Home = () => {
     setGoRegister(false)
   }
 
-  /* Login --> Form */
+  /* Login --> Form
 
   const handdleSubmit = (e) => {
     e.preventDefault()
@@ -30,7 +46,10 @@ const Home = () => {
     })
   }
 
-  return (
+*/
+
+/*
+
     <main>
       {isConfirm
         ? <UserPage />
@@ -44,9 +63,7 @@ const Home = () => {
 
           {goRegister ? <Register goLoginPage={goLoginPage} /> : <Login goRegisterPage={goRegisterPage} handdleSubmit={handdleSubmit} setImputPassword={setImputPassword} setImputName={setImputName} />}
 
-          </div>}
+        </div>}
     </main>
-  )
-}
 
-export default Home
+*/

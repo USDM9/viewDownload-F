@@ -5,6 +5,7 @@ import Home from '../pages/Home/Home'
 import Contact from '../pages/Contact/Contact'
 import Register from '../pages/Register/Register'
 import Error from '../pages/Error/Error'
+import UserPage from '../pages/UserPage/UserPage'
 
 const Routers = () => {
   return (
@@ -13,7 +14,7 @@ const Routers = () => {
       <Route path='/home' element={<Home />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/userpage' element={<userPage />} />
+      <Route path='/userPage' element={<UserPage />} />
       <Route path='*' element={<Error />} />
     </Routes>
   )

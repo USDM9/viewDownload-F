@@ -25,10 +25,10 @@ describe('Probando que el componente footer se renderise', () => {
         <Footer />
       </MemoryRouter>
     )
-    const content = 'Tecnologias  usadas para crear esta app'
 
     const header = screen.getByRole('header')
     const element = screen.getByRole('h3')
+    const content = 'Tecnologias  usadas para crear esta app'
 
     const isEquall = matchIfTextEquall(content, element)
 
@@ -36,5 +36,17 @@ describe('Probando que el componente footer se renderise', () => {
     expect(element).to.exist
 
     expect(isEquall).true
+  })
+
+  it('deberia renderizar ul', () => {
+    render(
+      <MemoryRouter>
+        <Footer />
+      </MemoryRouter>
+    )
+
+    const containerListIcons = screen.getByRole('constainerListIcons')
+
+    expect(containerListIcons).to.exist
   })
 })
