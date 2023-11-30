@@ -1,30 +1,46 @@
-import reactjsLogo from '../images/reactjs-logo.webp'
-import tailwindcssLogo from '../images/tailwindcss-logo.webp'
-import avatar from '../images/avatar.png'
-import logo from '../images/demo-logo.png'
+import reactJsLogo from '../images/reactJsLogo.png'
+import logoTrasparent from '../images/logo-trasparent.png'
+import cardImg from '../images/card_img.jpg'
+import mongoLogo from '../images/mongoLogo.png'
+import nodeJs from '../images/nodeJsLogo.png'
+import expressJs from '../images/expressJsLogo.png'
 
 const listImg = [
 
   {
-    img: `${reactjsLogo}`,
-    content: 'React JS'
+    img: `${reactJsLogo}`,
+    content: 'React JS',
+    technology: 'tech'
   },
 
   {
-    img: `${tailwindcssLogo}`,
-    content: 'Tailwind CSS'
-
+    img: `${nodeJs}`,
+    content: 'Node JS',
+    technology: 'tech'
   },
 
   {
-    img: `${avatar}`,
-    content: 'avatar'
+    img: `${expressJs}`,
+    content: 'Express JS',
+    technology: 'tech'
   },
 
   {
-    img: `${logo}`,
-    content: 'logo'
+    img: `${mongoLogo}`,
+    content: 'Mongo DB',
+    technology: 'tech'
+  },
+
+  {
+    img: `${logoTrasparent}`,
+    content: 'logoTrasparent'
+  },
+
+  {
+    img: `${cardImg}`,
+    content: 'cardImg'
   }
+
 ]
 
 export default listImg

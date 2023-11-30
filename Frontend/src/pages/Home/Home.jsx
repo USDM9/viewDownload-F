@@ -1,69 +1,56 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import CardComponent from './components/CardComponent'
+import LoadingEffect from '../../components/loadingEffect/LoadingEffect'
+import ErrorPage from '../ErrorPage/ErrorPage'
+import processVideoData from '../../utils/processVideoData'
 
-const Home = () => {
+// Home component
+const HomePage = () => {
+  // State for videoData and errorStatus
+  const [videoData, setVideoData] = useState([])
+  const [errorStatus, setErrorStatus] = useState(null)
+
+  // Server URL
+  const serverUrl = import.meta.env.VITE_ENDPOINT_URL
+
+  // Fetch data on component mount
+  useEffect(() => {
+    fetch(serverUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Page ${response.statusText} (${response.status.toString()})`)
+        }
+        if (response.status === 200) {
+          return response.json()
+        }
+      }
+      )
+      .then(data => {
+        setVideoData(data)
+      })
+      .catch(error => {
+        setErrorStatus(error)
+      })
+  }, []) // Specify dependencies if any
+
   return (
-    <div>
-      Home Page
-    </div>
+    <main>
+      {videoData &&
+        videoData.map(videoItem => {
+          // Extract data from videoItem
+          const processedData = processVideoData(videoItem)
+
+          return (
+            // Render CardComponent for each videoItem
+            <div key={videoItem._id} className='gridContainerCards'>
+              <CardComponent {...processedData} />
+            </div>
+          )
+        })}
+      {errorStatus ? <ErrorPage err={errorStatus} /> : <LoadingEffect />}
+
+    </main>
   )
 }
 
-export default Home
-
-/*
-
-import { React, useState, useContext } from 'react'
-import Login from '../Login/Login'
-import Register from '../Register/Register'
-import { userContext } from '../../Context/userContext'
-
-*/
-
-/*
-
-  const user = useContext(userContext)
-  const [goRegister, setGoRegister] = useState(false)
-  const [isConfirm, setIsConfirm] = useState(false)
-  const [imputName, setImputName] = useState('')
-  const [imputPassword, setImputPassword] = useState('')
-
-  const goRegisterPage = () => {
-    setGoRegister(true)
-  }
-
-  const goLoginPage = () => {
-    setGoRegister(false)
-  }
-
-  /* Login --> Form
-
-  const handdleSubmit = (e) => {
-    e.preventDefault()
-    user.forEach((item, index) => {
-      if (item.user === imputName.toLowerCase() && item.password === imputPassword.toString()) {
-        setIsConfirm(true)
-      }
-    })
-  }
-
-*/
-
-/*
-
-    <main>
-      {isConfirm
-        ? <UserPage />
-
-        : <div className=' grid grid-rows-2 h-[75vh]  bg-lightPrimaryColor sm:grid-cols-2  '>
-          <div className='w-full   flex  items-center '>
-            <h1 className=' text-textIconsColor ml-10'>
-              Bien venido a ViewDonload
-            </h1>
-          </div>
-
-          {goRegister ? <Register goLoginPage={goLoginPage} /> : <Login goRegisterPage={goRegisterPage} handdleSubmit={handdleSubmit} setImputPassword={setImputPassword} setImputName={setImputName} />}
-
-        </div>}
-    </main>
-
-*/
+export default HomePage

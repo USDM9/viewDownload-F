@@ -3,9 +3,11 @@ import NavMobile from './components/NavMobile/NavMobile'
 
 const NavBar = () => {
   return (
-    <nav role='nav' className='nav'>
-      <NavMobile />
-    </nav>
+    <header>
+      <nav role='nav' className='nav'>
+        <NavMobile />
+      </nav>
+    </header>
   )
 }
 

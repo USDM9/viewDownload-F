@@ -1,18 +1,24 @@
 import ListIcons from './components/ListIcons'
 
-const Footer = () => {
+const Footer = ({ footerFlag }) => {
   return (
-    <footer role='footer'>
-      <header role='header'>
-        <h3 role='h3'>Tecnologias  usadas para crear esta app</h3>
-      </header>
-      <main role='constainerListIcons'>
-        <ListIcons />
-      </main>
-      <footer role='footerCopy'>
-        <h4>copy USDM </h4>
-      </footer>
-    </footer>
+    <>
+      {footerFlag
+        ? (
+          <footer role='footer' className='footer'>
+            <div role='header' className='footerHeaderContainer'>
+              <h3 role='h3' className='footerText'>
+                Tecnologías usadas en el desarrollo de esta aplicación.
+              </h3>
+              <ListIcons />
+            </div>
+            <div role='footerCopy' className='footerCopy'>
+              <h4>&copy; 2023 USDM</h4>
+            </div>
+          </footer>
+          )
+        : null}
+    </>
   )
 }
 

@@ -10,22 +10,12 @@ const NavMobile = () => {
 
   return (
     <div role='navMobile' className='navMobile'>
-      <div role='containerImg' className='containerImg'>
-        <img src={`${logo}`} alt={`${alt}`} />
-      </div>
-      <div className='containerList'>
-        <ul role='ul'>
-          <li role='li'>
-            <Link role='a' to='/Home'>Inicio</Link>
-          </li>
-          <li role='li'>
-            <Link role='a' to='/Contact'>Contacto</Link>
-          </li>
-          <li role='li'>
-            <Link role='a' to='/UserPage'>User Page</Link>
-          </li>
-        </ul>
-      </div>
+      <Link role='a' to='/home'>
+        <div role='containerImg' className='containerNavLogo'>
+          <img className='navLogo' src={`${logo}`} alt={`${alt}`} />
+          <p className='navLogoText'>VIEWDOWNLOAD</p>
+        </div>
+      </Link>
     </div>
   )
 }
