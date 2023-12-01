@@ -8,6 +8,7 @@ const CardComponent = (processedData) => {
     videoTags,
     videoTitle
   } = processedData
+
   return (
     <>
       <div className=' gridCard'>

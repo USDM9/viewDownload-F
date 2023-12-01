@@ -38,11 +38,13 @@ const StreamingOp = ({ handle }) => {
     return () => handle(true)
   }, [handle])
 
+  const videoUrl = import.meta.env.VITE_ENDPOINT_URL
+
   // Return the JSX for the component
   return (
     <div className='containerVideo'>
       {isLoading && <EfectLoading />}
-      <iframe ref={iframeRef} style={{ width: '100%', height: '100%', display: isLoading ? 'none' : 'block' }} src={`http://localhost:3080/one-piece/${id}`} frameBorder='0' allowFullScreen />
+      <iframe ref={iframeRef} style={{ width: '100%', height: '100%', display: isLoading ? 'none' : 'block' }} src={`${videoUrl}/${id}`} frameBorder='0' allowFullScreen />
     </div>
   )
 }
